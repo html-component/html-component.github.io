@@ -1,49 +1,44 @@
-!(function (e) {
+!(function () {
   'use strict';
-  function t() {
-    return '';
-  }
-  class s extends HTMLElement {
+  class t extends HTMLElement {
     constructor() {
       super();
-      const e = { name: this.getprop('c:name'), props: this.getprop('c:props').split(' ') || [], html: this.innerHTML };
+      const t = { name: this.getprop('c:name'), props: this.getprop('c:props').split(' ') || [], html: this.innerHTML };
       try {
         customElements.define(
-          e.name,
+          t.name,
           class extends HTMLElement {
             constructor() {
               super();
-              let t = e['html'];
-              e.props.forEach((e) => {
-                t = t.replace(new RegExp(`{{${e}}}`, 'g'), this.getAttribute('props:' + e));
+              let e = t['html'];
+              t.props.forEach((t) => {
+                e = e.replace(new RegExp(`{{${t}}}`, 'g'), this.getAttribute('props:' + t));
               }),
-                (this.outerHTML = t);
+                (this.outerHTML = e);
             }
           }
         );
-      } catch (e) {
-        console.error(e);
+      } catch (t) {
+        console.error(t);
       }
       this.outerHTML = '';
     }
-    getprop(e) {
-      return this.getAttribute(e);
+    getprop(t) {
+      return this.getAttribute(t);
     }
   }
   new (class {
-    constructor(e, t, s) {
+    constructor(t, e, s) {
       customElements.define(
-        e,
+        t,
         class extends HTMLElement {
           constructor() {
-            super(), s ? (this.innerHTML = t) : (this.outerHTML = t);
+            super(), s ? (this.innerHTML = e) : (this.outerHTML = e);
           }
         }
       );
     }
   })('c-each', '', !0),
-    customElements.define('c-template', s),
-    (e.default = { HTMLTemplate: s, HTMLMap: t }),
-    Object.defineProperty(e, '__esModule', { value: !0 });
-})((this['html-component'] = this['html-component'] || {}));
+    customElements.define('c-template', t);
+})();
 //# sourceMappingURL=component.js.map
