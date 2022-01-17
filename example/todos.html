@@ -15,7 +15,7 @@
 
     <!-- Print Todos -->
     <c-each id="todos" c:return-v="todo" c:return-i="index">
-      <li>{{index}}. {{todo}}</li>
+      <li>{{index+1}}. {{todo}}</li>
     </c-each>
     <script>
       let todos = [];
