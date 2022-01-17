@@ -9,8 +9,12 @@
     <title>Example</title>
   </head>
   <body>
+    <c-template c:name="cat-profile" c:props="index cat">
+      <li>{{Number(index)+1}}. {{`cat. ${cat}`}}</li>
+    </c-template>
+
     <c-each id="cats" c:return-v="cat" c:return-i="i">
-      <li>{{i}}. {{cat}}</li>
+      <cat-profile props:index="{{i}}" props:cat="{{cat}}"></cat-profile>
     </c-each>
 
     <script>
