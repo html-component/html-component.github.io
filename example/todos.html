@@ -22,11 +22,12 @@
       const element = new ComponentEach('todos');
 
       function add() {
-        console.log("input")
         let input = document.getElementById('input');
-        todos.push(input.value);
-        input.value = '';
-        element.each(todos);
+        if(input.value) {
+          todos.push(input.value);
+          input.value = '';
+          element.each(todos);
+        }
       }
     </script>
   </body>
