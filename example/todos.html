@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo App</title>
+    <script src="../assets/component-init.js"></script>
+    <script type="module" src="../assets/component.js"></script>
+  </head>
+  <body>
+    <!-- Input Field -->
+    <input id="input"></input>
+    <button onclick="add()">Submit</button>
+
+    <!-- Print Todos -->
+    <c-each id="todos" c:return-v="todo" c:return-i="index">
+      <li>{{index}}. {{todo}}</li>
+    </c-each>
+    <script>
+      let todos = [];
+      const element = new ComponentEach('todos');
+
+      function add() {
+        console.log("input")
+        let input = document.getElementById('input');
+        todos.push(input.value);
+        input.value = '';
+        element.each(todos);
+      }
+    </script>
+  </body>
+</html>
